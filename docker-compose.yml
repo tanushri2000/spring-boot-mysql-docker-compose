@@ -3,7 +3,7 @@ services:
   application:
     image: spring-boot-mysql-app
     ports:
-      - "8080:8080"
+      - "9080:9080"
     networks:
       - springboot-db-net
     depends_on:
@@ -17,7 +17,7 @@ services:
     ports:
      - "3306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=Tanushri
       - MYSQL_DATABASE=sbms
     volumes:
       - /data/mysql
