@@ -9,7 +9,9 @@ services:
     depends_on:
       - mysqldb
     volumes:
-      - /data/springboot-app
+      - springboot-app-data:/data/springboot-app
+    entrypoint: ["/wait-for-it.sh", "mysqldb:3306", "--", "java", "-jar", "/spring-boot-mysql.jar"]
+
   mysqldb:
     image: mysql:8.0
     networks:
@@ -20,8 +22,15 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=sbms1
     volumes:
-      - /data/mysql
+      - mysql-data:/data/mysql
+
 networks:
   springboot-db-net:
     driver: bridge
+
+volumes:
+  springboot-app-data:
+  mysql-data:
+
+
      
