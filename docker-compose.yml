@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 services:
   application:
     image: spring-boot-mysql-app
@@ -9,17 +9,28 @@ services:
     depends_on:
       - mysqldb
     volumes:
-      - /data/springboot-app
+      - springboot-app-data:/data/springboot-app
+    
+
   mysqldb:
     image: mysql:8.0
     networks:
       - springboot-db-net
     ports:
-     - "3306:3306"
+      - "3306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=Tanushri
-      - MYSQL_DATABASE=sbms
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=sbms1
     volumes:
-      - /data/mysql
+      - mysql-data:/data/mysql
+
 networks:
   springboot-db-net:
+    driver: bridge
+
+volumes:
+  springboot-app-data:
+  mysql-data:
+
+
+     
