@@ -10,7 +10,7 @@ services:
       - mysqldb
     volumes:
       - springboot-app-data:/data/springboot-app
-    entrypoint: ["/wait-for-it.sh", "mysqldb:3306", "--", "java", "-jar", "/spring-boot-mysql.jar"]
+    
 
   mysqldb:
     image: mysql:8.0
