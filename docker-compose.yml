@@ -15,7 +15,7 @@ services:
     networks:
       - springboot-db-net
     ports:
-     - "3306:3306"
+      - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=sbms1
@@ -23,3 +23,5 @@ services:
       - /data/mysql
 networks:
   springboot-db-net:
+    driver: bridge
+     
