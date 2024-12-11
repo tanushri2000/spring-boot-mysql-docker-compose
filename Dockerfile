@@ -1,5 +1,5 @@
 # Use the official OpenJDK image as a base
-FROM openjdk:11
+FROM openjdk:17-jdk
 
 # Expose the port the app will run on
 EXPOSE 8080
